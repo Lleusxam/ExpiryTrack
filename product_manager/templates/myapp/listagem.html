@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+{% block content %} 
+<center>
+<h4>Listagem de Todos os Registros</h4>
+{% if listatotal %}
+    <table>
+<!--    <table class="table table-hover"> -->
+        <thead>
+            <tr>
+                <th >Nome</th>
+                <th >Email</th>
+                <th >Telefone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reg in listatotal %}
+                <tr>
+                    <td>{{reg.nome}}</td>
+                    <td>{{reg.email}}</td>
+                    <td>{{reg.telefone}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>  
+    </table>
+{% else %}
+    <h4>Sem Registros</h4>
+{% endif %}
+<a href="{% url 'home' %}" class="btn btn-warning">Retornar </a>   
+{% endblock %}
+
+

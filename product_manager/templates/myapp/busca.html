@@ -1,0 +1,28 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %} 
+    <center>
+    <h4>Listagem dos Registros Encontrados</h4>
+    {% if resultados %}
+        <table>
+            <tr>
+                <th >Nome</th>
+                <th >Email</th>
+                <th >Telefone</th>
+            </tr>    
+            <tbody>
+                {% for reg in resultados %}
+                    <tr>
+                        <td>{{reg.nome}}</td>
+                        <td>{{reg.email}}</td>
+                        <td>{{reg.telefone}}</td>
+                    </tr>
+                {% endfor %}
+               </tbody>  
+        </table>
+    {% else %}
+        <h4>Sem Registros</h4>
+    {% endif %}
+    <a href="{% url 'home' %}">Retornar </a>
+    </center>
+{% endblock %}

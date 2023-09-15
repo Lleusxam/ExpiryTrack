@@ -1,0 +1,10 @@
+{% extends 'bootstrap-admin-template-free/base.html' %}
+{% block content %}
+    <form action="{% url 'busca' %}" method="get">    
+        <center>
+            <input name="busca">
+            &nbsp&nbsp
+            <button type="submit">Pesquisar produto</button>   
+        </center>
+    </form> 
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="row">
+
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">Incluir Registro</h4>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Inserir" class="btn btn-primary"> <br>
+           <h3 class="text-info">
+            {% if messages %}
+                {% for message in messages %}
+                    {{message}}
+                {% endfor %}
+            {% endif %}
+           </h3>
+        </form>
+
+    </div>
+
+   <div class="col-sm-8">
+        <h4 class="text-center alert alert-info">Listagem / Configuração de Registros</h4>
+        {% if data %}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th >Nome</th>
+                        <th >Email</th>
+                        <th >Telefone</th>
+                        <th>Configurações</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    {% for reg in data %}
+                        <tr>
+                            <td>{{reg.nome}}</td>
+                            <td>{{reg.email}}</td>
+                            <td>{{reg.telefone}}</td>
+                            <td>
+                                <a href="{% url 'update' reg.id %}" class="btn btn-primary">Edit</a>
+                                <a href="{% url 'delete' reg.id %}" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>  
+              </table>
+
+        {% else %}
+            <h4>Sem Registros</h4>
+        {% endif %}
+      
+   </div>
+   {% else %}
+        <h1> Você não está logado </h1>
+   {% endif %}
+</div>
+{% endblock %}

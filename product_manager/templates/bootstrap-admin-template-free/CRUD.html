@@ -1,0 +1,41 @@
+{% extends 'bootstrap-admin-template-free/base.html' %}
+{% block content %}
+<div class="col-12">
+    
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Veículos</h6>
+        <a href="{% url 'adicionar' %} "><button class="btn btn-primary">Novo</button></a>
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Cor</th>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for veiculos in veiculos %}
+                    <tr>
+                        <th scope="row">{{veiculos.marca}}</th>
+                        <td>{{veiculos.modelo}}</td>
+                        <td>{{veiculos.cor}}</td>
+                        <td>{{veiculos.placa}}</td>
+
+                        <td> 
+                            <a href="{% url 'update' veiculos.id %}">Editar - </a>    
+                            <a href="{% url 'delete' veiculos.id %}">Excluir</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

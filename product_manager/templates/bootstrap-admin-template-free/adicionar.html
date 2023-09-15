@@ -1,0 +1,14 @@
+{% extends 'bootstrap-admin-template-free/base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+        <div class="text-end upgrade-btn">
+            <button type="submit" class="btn btn-success d-none d-md-inline-block text-white">Salvar</button>
+    </div>
+</form>
+{% else %}
+    <h1>Usuário não autenticado</h1>
+{% endif %}
+{% endblock %}

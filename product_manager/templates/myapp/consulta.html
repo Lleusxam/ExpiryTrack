@@ -1,0 +1,11 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %} 
+     <center>
+     <form action="{% url 'busca' %}" method="get">        
+          <input name="busca">
+          &nbsp&nbsp
+          <button type="submit">Buscar Registro(s)</button>   
+     </form> 
+     </center>  
+{% endblock %}
