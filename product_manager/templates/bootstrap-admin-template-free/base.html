@@ -74,7 +74,7 @@
                     <span class="d-none d-lg-inline-flex">Entrar</span>
                 </a>
                 {% else %}
-                <a class="nav-link">
+                <a class="nav-link" href="{% url 'logout' %}">
                     <span class="d-none d-lg-inline-flex">Sair</span>
                 </a>
                 {% endif %}

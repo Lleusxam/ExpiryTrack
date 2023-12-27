@@ -44,25 +44,20 @@
                             <a href="index.html" class="">
                                 <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
                             </a>
-                            <h3>Sign In</h3>
+                            <h3>Login</h3>
                         </div>
+                        <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Email address</label>
+                            <input name="name"type="text" class="form-control" id="floatingInput" placeholder="john">
+                            <label for="floatingInput">Nome de usuário</label>
                         </div>
                         <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Senha</label>
                         </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>
-                            <a href="">Forgot Password</a>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="">Sign Up</a></p>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Entrar</button>
+                        </form>
+                        <p class="text-center mb-0">Não possui uma conta? <a href="{% url 'register' %}">Registre-se</a></p>
                     </div>
                 </div>
             </div>
